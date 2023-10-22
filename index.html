@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>MusicYou</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="assets.js"></script>
+
+    <style>
+      h1 {
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        letter-spacing: 1px;
+      }
+      #Piano {
+        height: 100vh;
+      }
+      .white-key {
+        background: linear-gradient(#fff 96%, #eee 4%);
+      }
+      .white-key:active {
+        box-shadow: inset -5px 5px 20px rgba(0, 0, 0, 0.2);
+        background: linear-gradient(to bottom, #fff 0%, #eee 100%);
+      }
+      .black-key {
+        background: linear-gradient(#252525, #000);
+      }
+      .black-key:active {
+        box-shadow: inset -5px 5px 10px rgba(255, 255, 255, 0.1);
+        background: linear-gradient(to bottom, #000, #252525);
+      }
+      .shake:active {
+        animation: animasi 0.3s;
+      }
+      @keyframes animasi {
+        0% {
+          transform: translateY(0px);
+        }
+        25% {
+          transform: translateY(3px);
+        }
+        50% {
+          transform: translateY(-6px);
+        }
+        75% {
+          transform: translateY(6px);
+        }
+        100% {
+          transform: translateY(0px);
+        }
+      }
+
+      .getar {
+        transform: scale(1);
+        transition: 0.1s linear;
+      }
+      .getar:active {
+        transform: scale(1.03);
+        animation: animasi 0.1s linear;
+      }
+    </style>
+  </head>
+  <body class="m-0 p-0 overflow-x-hidden scroll-smooth">
+    <!-- Navbar -->
+
+    <div class="navbar fixed top-0 w-full bg-white bg-opacity-75 backdrop-blur-sm p-4 shadow-lg z-50">
+      <div class="mx-auto px-20 flex justify-between items-center">
+        <h1 class="text-[30px] font-extrabold">Music<span class="text-blue-500">You</span></h1>
+        <ul class="flex space-x-5">
+          <li><a href="index.html" class="text-lg border-blue-500 hover:border-b-2 transition-all duration-100">Home</a></li>
+          <li><a href="#Piano" class="text-lg border-blue-500 hover:border-b-2 transition-all duration-100">Piano</a></li>
+          <li><a href="#Guitar" class="text-lg border-blue-500 hover:border-b-2 transition-all duration-100">Guitar</a></li>
+          <li><a href="#Drum" class="text-lg border-blue-500 hover:border-b-2 transition-all duration-100">Drum</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Piano -->
+
+    <div id="Piano" class="grid place-items-center flex-col bg-sky-50 justify-center items-center">
+      <div class="pt-[80px] pb-[15px] px-[35px] bg-blue-500 rounded-lg">
+        <div class="relative">
+          <div class="flex relative cursor-pointer">
+            <div onclick="playPiano('P_C')" class="black-key w-[38px] h-[160px] rounded-b-md box-border absolute left-[48px]">
+              <div class="relative flex justify-center top-[130px] text-white text-sm">C#</div>
+            </div>
+            <div onclick="playPiano('P_D')" class="black-key w-[38px] h-[160px] rounded-b-md box-border absolute left-[117px]">
+              <div class="relative flex justify-center top-[130px] text-white text-sm">D#</div>
+            </div>
+            <div onclick="playPiano('P_F')" class="black-key w-[38px] h-[160px] rounded-b-md box-border absolute left-[253px]">
+              <div class="relative flex justify-center top-[130px] text-white text-sm">F#</div>
+            </div>
+            <div onclick="playPiano('P_G')" class="black-key w-[38px] h-[160px] rounded-b-md box-border absolute left-[320px]">
+              <div class="relative flex justify-center top-[130px] text-white text-sm">G#</div>
+            </div>
+            <div onclick="playPiano('P_A')" class="black-key w-[38px] h-[160px] rounded-b-md box-border absolute left-[389px]">
+              <div class="relative flex justify-center top-[130px] text-white text-sm">A#</div>
+            </div>
+          </div>
+
+          <div class="flex cursor-pointer">
+            <div onclick="playPiano('Do')" class="white-key w-[68px] h-[280px] rounded-l border-black border-2 box-border active:shadow-black active:bg-slate-100">
+              <div class="relative flex justify-center top-[229px] text-lg font-medium">Do</div>
+            </div>
+            <div onclick="playPiano('Re')" class="white-key w-[68px] h-[280px] rounded-l border-black border-2 box-border active:shadow-black active:bg-slate-100">
+              <div class="relative flex justify-center top-[229px] text-lg font-medium">Re</div>
+            </div>
+            <div onclick="playPiano('Mi')" class="white-key w-[68px] h-[280px] rounded-l border-black border-2 box-border active:shadow-black active:bg-slate-100">
+              <div class="relative flex justify-center top-[229px] text-lg font-medium">Mi</div>
+            </div>
+            <div onclick="playPiano('Fa')" class="white-key w-[68px] h-[280px] rounded-l border-black border-2 box-border active:shadow-black active:bg-slate-100">
+              <div class="relative flex justify-center top-[229px] text-lg font-medium">Fa</div>
+            </div>
+            <div onclick="playPiano('Sol')" class="white-key w-[68px] h-[280px] rounded-l border-black border-2 box-border active:shadow-black active:bg-slate-100">
+              <div class="relative flex justify-center top-[229px] text-lg font-medium">Sol</div>
+            </div>
+            <div onclick="playPiano('La')" class="white-key w-[68px] h-[280px] rounded-l border-black border-2 box-border active:shadow-black active:bg-slate-100">
+              <div class="relative flex justify-center top-[229px] text-lg font-medium">La</div>
+            </div>
+            <div onclick="playPiano('Si')" class="white-key w-[68px] h-[280px] rounded-l border-black border-2 box-border active:shadow-black active:bg-slate-100">
+              <div class="relative flex justify-center top-[229px] text-lg font-medium">Si</div>
+            </div>
+            <div onclick="playPiano('Do2')" class="white-key w-[68px] h-[280px] rounded-l border-black border-2 box-border active:shadow-black active:bg-slate-100">
+              <div class="relative flex justify-center top-[229px] text-lg font-medium">Do</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Gitar -->
+
+    <div id="Guitar" class="flex items-center h-screen bg-orange-50">
+      <div class="p-6 bg-orange-400 rounded-lg w-[23.5rem] h-[23.5rem] relative">
+        <div id="gitar" class="flex w-full h-full bg-gray-700 border-yellow-500 border-[10px] rounded-full relative"></div>
+        <div onclick="playGitar('AM')" class="shake absolute top-[5.5rem] left-0 right-0 w-screen h-[8px] bg-slate-300 hover:bg-slate-400 shadow cursor-pointer">
+          <div class="absolute w-11 h-9 bg-orange-800 rounded-r-lg top-[50%] translate-y-[-50%] right-7"><div class="text-center mt-1 text-white font-semibold">Am</div></div>
+        </div>
+        <div onclick="playGitar('G_C')" class="shake absolute top-[8.5rem] left-0 right-0 w-screen h-[8px] bg-slate-300 hover:bg-slate-400 shadow cursor-pointer">
+          <div class="absolute w-11 h-9 bg-orange-800 rounded-r-lg top-[50%] translate-y-[-50%] right-7"><div class="text-center mt-1 text-white font-semibold">C</div></div>
+        </div>
+        <div onclick="playGitar('DM')" class="shake absolute top-[11.5rem] left-0 right-0 w-screen h-[8px] bg-slate-300 hover:bg-slate-400 shadow cursor-pointer">
+          <div class="absolute w-11 h-9 bg-orange-800 rounded-r-lg top-[50%] translate-y-[-50%] right-7"><div class="text-center mt-1 text-white font-semibold">Dm</div></div>
+        </div>
+        <div onclick="playGitar('G_G')" class="shake absolute top-[14.5rem] left-0 right-0 w-screen h-[8px] bg-slate-300 hover:bg-slate-400 shadow cursor-pointer">
+          <div class="absolute w-11 h-9 bg-orange-800 rounded-r-lg top-[50%] translate-y-[-50%] right-7"><div class="text-center mt-1 text-white font-semibold">G</div></div>
+        </div>
+        <div onclick="playGitar('G_F')" class="shake absolute top-[17.5rem] left-0 right-0 w-screen h-[8px] bg-slate-300 hover:bg-slate-400 shadow cursor-pointer">
+          <div class="absolute w-11 h-9 bg-orange-800 rounded-r-lg top-[50%] translate-y-[-50%] right-7"><div class="text-center mt-1 text-white font-semibold">F</div></div>
+        </div>
+      </div>
+      <div class="bg-gray-700 w-12 h-[18rem] rounded flex flex-col justify-between ml-12"></div>
+    </div>
+
+    <!-- Drum -->
+
+    <div id="Drum" class="flex items-center h-screen bg-zinc-50">
+      <div
+        onclick="playDrum('hihatOpen')"
+        id="hihat-open"
+        class="getar cursor-pointer absolute flex w-48 h-48 rounded-full bg-gradient-to-br from-amber-500 to-amber-900 border-orange-400 border-[6px] drop-shadow-xl top-[227%] left-[15%] z-20 justify-center items-center"
+      >
+        <div class="w-5 h-5 rounded-full bg-black"></div>
+      </div>
+
+      <div
+        onclick="playDrum('hihat')"
+        id="hihat"
+        class="getar cursor-pointer absolute flex w-48 h-48 rounded-full bg-gradient-to-br from-amber-500 to-amber-900 border-orange-400 border-[6px] drop-shadow-xl top-[234%] left-[12%] z-10 justify-center items-center"
+      >
+        <div class="w-6 h-6 rounded-full bg-black"></div>
+      </div>
+
+      <div
+        onclick="playDrum('crash')"
+        id="crash"
+        class="getar cursor-pointer absolute flex w-52 h-52 rounded-full bg-gradient-to-r from-amber-500 to-amber-900 border-orange-400 border-[6px] drop-shadow-2xl top-[217%] left-[32%] justify-center items-center z-30"
+      >
+        <div class="w-6 h-6 rounded-full bg-black"></div>
+      </div>
+
+      <div
+        onclick="playDrum('shareDrum')"
+        id="share-drum"
+        class="transition-all duration-75 active:scale-[1.07] cursor-pointer absolute flex w-60 h-60 rounded-full bg-gradient-to-b from-slate-600 to-zinc-800 drop-shadow-2xl top-[236%] left-[28%] justify-center items-center border-sky-600 border-[6px] font-bold text-base text-white z-20"
+      >
+        ShareDrum
+      </div>
+      <div
+        onclick="playDrum('shareStick')"
+        id="share-stick"
+        class="transition-all duration-75 active:scale-[1.07] cursor-pointer absolute flex w-44 h-44 rounded-full bg-gradient-to-b from-slate-600 to-zinc-800 drop-shadow-2xl top-[260%] left-[25%] justify-center items-center border-sky-600 border-[6px] font-bold text-xs text-white z-10"
+      >
+        ShareStick
+      </div>
+      <div
+        onclick="playDrum('tom1')"
+        id="tom1"
+        class="transition-all duration-75 active:scale-[1.07] cursor-pointer absolute flex w-44 h-44 rounded-full bg-gradient-to-br from-slate-600 to-zinc-800 drop-shadow-2xl top-[236%] left-[46%] justify-center items-center border-sky-600 border-[6px] font-bold text-base text-white z-10"
+      >
+        Tom 1
+      </div>
+      <div
+        onclick="playDrum('floorTom')"
+        id="floortom"
+        class="transition-all duration-75 active:scale-[1.07] cursor-pointer absolute flex w-36 h-36 rounded-full bg-gradient-to-br from-slate-600 to-zinc-800 drop-shadow-2xl top-[235%] left-[60%] border-sky-600 border-[6px] text-white font-bold text-xs justify-center items-center z-20"
+      >
+        FloorTom
+      </div>
+      <div
+        onclick="playDrum('ride')"
+        id="ride"
+        class="getar cursor-pointer absolute flex w-72 h-72 rounded-full bg-gradient-to-br from-amber-500 to-amber-900 border-orange-400 border-[6px] drop-shadow-2xl top-[214%] left-[70%] justify-center items-center"
+      >
+        <div class="w-7 h-7 rounded-full bg-black"></div>
+      </div>
+
+      <div
+        onclick="playDrum('bass')"
+        id="bass"
+        class="transition-all duration-75 active:scale-[1.07] cursor-pointer absolute flex w-72 h-72 rounded-full bg-gradient-to-bl from-zinc-100 to-zinc-200 drop-shadow-2xl top-[255%] left-[38%] justify-center items-center border-red-600 border-8 font-bold text-2xl text-black"
+      >
+        Bass
+      </div>
+      <div
+        onclick="playDrum('tom2')"
+        id="tom2"
+        class="transition-all duration-75 active:scale-[1.07] cursor-pointer absolute flex w-60 h-60 rounded-full bg-gradient-to-br from-slate-600 to-zinc-800 drop-shadow-2xl top-[250%] left-[56%] justify-center items-center border-sky-600 border-[6px] font-bold text-base text-white"
+      >
+        Tom 2
+      </div>
+      <div
+        onclick="playDrum('hihatFoot')"
+        id="hhf"
+        class="transition-all duration-75 active:scale-[1.07] cursor-pointer absolute flex w-36 h-36 rounded-full bg-gradient-to-bl from-zinc-100 to-zinc-200 drop-shadow-2xl top-[254%] left-[15%] justify-center items-center text-black text-sm border-zinc-800 border-4 font-bold"
+      >
+        HHF
+      </div>
+    </div>
+
+    <div class="p-5 bg-blue-500">
+      <h1 class="flex justify-center items-center text-white text-lg tracking-wide">Copyright © M.Fadlan Kamil - RPL'56</h1>
+    </div>
+
+    <script>
+      const navbarLinks = document.querySelectorAll('.navbar a');
+
+      navbarLinks.forEach((link) => {
+        link.addEventListener('click', (event) => {
+          event.preventDefault();
+
+          const id = event.target.getAttribute('href');
+          const element = document.querySelector(id);
+
+          window.scrollTo({
+            top: element.offsetTop,
+            behavior: 'smooth',
+          });
+        });
+      });
+    </script>
+
+    <script>
+      function playPiano(chordPiano) {
+        switch (chordPiano) {
+          // PIANO
+
+          case 'Do':
+            audioDo.load();
+            audioDo.pause();
+            audioDo.currentTime = 0.6;
+            audioDo.play();
+            break;
+          case 'Re':
+            audioRe.load();
+            audioRe.pause();
+            audioRe.currentTime = 0.6;
+            audioRe.play();
+            break;
+          case 'Mi':
+            audioMi.load();
+            audioMi.pause();
+            audioMi.currentTime = 0.6;
+            audioMi.play();
+            break;
+          case 'Fa':
+            audioFa.load();
+            audioFa.pause();
+            audioFa.currentTime = 0.6;
+            audioFa.play();
+            break;
+          case 'Sol':
+            audioSol.load();
+            audioSol.pause();
+            audioSol.currentTime = 0.5;
+            audioSol.play();
+            break;
+          case 'La':
+            audioLa.load();
+            audioLa.pause();
+            audioLa.currentTime = 0.5;
+            audioLa.play();
+            break;
+          case 'Si':
+            audioSi.load();
+            audioSi.pause();
+            audioSi.currentTime = 0.3;
+            audioSi.play();
+            break;
+          case 'Do2':
+            audioDo2.load();
+            audioDo2.pause();
+            audioDo2.currentTime = 0.3;
+            audioDo2.play();
+            break;
+          case 'P_C':
+            audioP_C.load();
+            audioP_C.pause();
+            audioP_C.currentTime = 0.7;
+            audioP_C.play();
+            break;
+          case 'P_D':
+            audioP_D.load();
+            audioP_D.pause();
+            audioP_D.currentTime = 0.7;
+            audioP_D.play();
+            break;
+          case 'P_F':
+            audioP_F.load();
+            audioP_F.pause();
+            audioP_F.currentTime = 0.7;
+            audioP_F.play();
+            break;
+          case 'P_G':
+            audioP_G.load();
+            audioP_G.pause();
+            audioP_G.currentTime = 0.7;
+            audioP_G.play();
+            break;
+          case 'P_A':
+            audioP_A.load();
+            audioP_A.pause();
+            audioP_A.currentTime = 0.5;
+            audioP_A.play();
+            break;
+        }
+      }
+
+      document.addEventListener('keypress', function () {
+        switch (event.key) {
+          case 'q':
+          case 'Q':
+            playPiano('Do');
+            break;
+          case 'w':
+          case 'W':
+            playPiano('Re');
+            break;
+          case 'e':
+          case 'E':
+            playPiano('Mi');
+            break;
+          case 'r':
+          case 'R':
+            playPiano('Fa');
+            break;
+          case 't':
+          case 'T':
+            playPiano('Sol');
+            break;
+          case 'y':
+          case 'Y':
+            playPiano('La');
+            break;
+          case 'u':
+          case 'U':
+            playPiano('Si');
+            break;
+          case 'i':
+          case 'I':
+            playPiano('Do2');
+            break;
+          case 'o':
+          case 'O':
+            playPiano('P_C');
+            break;
+          case 'p':
+          case 'P':
+            playPiano('P_D');
+            break;
+          case '[':
+          case '{':
+            playPiano('P_F');
+            break;
+          case ']':
+          case '}':
+            playPiano('P_G');
+            break;
+        }
+        if (event.keyCode == 92 || event.keyCode == 124) {
+          playPiano('P_A');
+        }
+      });
+    </script>
+
+    <script>
+      // GITAR
+
+      function playGitar(chordGitar) {
+        switch (chordGitar) {
+          case 'AM':
+            audioAM.load();
+            audioAM.pause();
+            audioAM.currentTime = 0.5;
+            audioAM.play();
+            break;
+          case 'G_C':
+            audioG_C.load();
+            audioG_C.pause();
+            audioG_C.currentTime = 0.5;
+            audioG_C.play();
+            break;
+          case 'DM':
+            audioDM.load();
+            audioDM.pause();
+            audioDM.currentTime = 0.5;
+            audioDM.play();
+            break;
+          case 'G_G':
+            audioG_G.load();
+            audioG_G.pause();
+            audioG_G.currentTime = 0.7;
+            audioG_G.play();
+            break;
+          case 'G_F':
+            audioG_F.load();
+            audioG_F.pause();
+            audioG_F.currentTime = 0.5;
+            audioG_F.play();
+            break;
+        }
+      }
+
+      document.addEventListener('keypress', function () {
+        switch (event.key) {
+          case 'Z':
+          case 'z':
+            playGitar('AM');
+            break;
+          case 'x':
+          case 'X':
+            playGitar('G_C');
+            break;
+          case 'C':
+          case 'c':
+            playGitar('DM');
+            break;
+          case 'V':
+          case 'v':
+            playGitar('G_G');
+            break;
+          case 'b':
+          case 'B':
+            playGitar('G_F');
+            break;
+        }
+      });
+    </script>
+
+    <script>
+      // DRUM
+
+      function playDrum(chordDrum) {
+        switch (chordDrum) {
+          case 'hihatOpen':
+            audiohihatOpen.load();
+            audiohihatOpen.pause();
+            audiohihatOpen.currentTime = 0;
+            audiohihatOpen.play();
+            break;
+          case 'hihat':
+            audiohihat.load();
+            audiohihat.pause();
+            audiohihat.currentTime = 0;
+            audiohihat.play();
+            break;
+          case 'crash':
+            audiocrash.load();
+            audiocrash.pause();
+            audiocrash.currentTime = 0.3;
+            audiocrash.play();
+            break;
+          case 'shareDrum':
+            audioshareDrum.load();
+            audioshareDrum.pause();
+            audioshareDrum.currentTime = 0;
+            audioshareDrum.play();
+            break;
+          case 'shareStick':
+            audioshareStick.load();
+            audioshareStick.pause();
+            audioshareStick.currentTime = 0;
+            audioshareStick.play();
+            break;
+          case 'tom1':
+            audiotom1.load();
+            audiotom1.pause();
+            audiotom1.currentTime = 0;
+            audiotom1.play();
+            break;
+          case 'floorTom':
+            audiofloorTom.load();
+            audiofloorTom.pause();
+            audiofloorTom.currentTime = 0;
+            audiofloorTom.play();
+            break;
+          case 'ride':
+            audioride.load();
+            audioride.pause();
+            audioride.currentTime = 0;
+            audioride.play();
+            break;
+          case 'bass':
+            audiobass.load();
+            audiobass.pause();
+            audiobass.currentTime = 0;
+            audiobass.play();
+            break;
+          case 'tom2':
+            audiotom2.load();
+            audiotom2.pause();
+            audiotom2.currentTime = 0;
+            audiotom2.play();
+            break;
+          case 'hihatFoot':
+            audiohihatFoot.load();
+            audiohihatFoot.pause();
+            audiohihatFoot.currentTime = 0;
+            audiohihatFoot.play();
+            break;
+        }
+      }
+
+      document.addEventListener('keypress', function () {
+        switch (event.key) {
+          case 'a':
+          case 'A':
+            playDrum('hihatOpen');
+            break;
+          case 'S':
+          case 's':
+            playDrum('hihat');
+            break;
+          case 'd':
+          case 'D':
+            playDrum('crash');
+            break;
+          case 'F':
+          case 'f':
+            playDrum('shareDrum');
+            break;
+          case 'g':
+          case 'G':
+            playDrum('shareStick');
+            break;
+          case 'H':
+          case 'h':
+            playDrum('tom1');
+            break;
+          case 'j':
+          case 'J':
+            playDrum('floorTom');
+            break;
+          case 'K':
+          case 'k':
+            playDrum('ride');
+            break;
+          case 'l':
+          case 'L':
+            playDrum('bass');
+            break;
+          case ';':
+          case ':':
+            playDrum('tom2');
+            break;
+        }
+        if (event.keyCode == 34 || event.keyCode == 44) {
+          playDrum('hihatFoot');
+        }
+      });
+    </script>
+  </body>
+</html>
