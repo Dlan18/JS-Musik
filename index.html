@@ -77,22 +77,22 @@
     <!-- Piano -->
 
     <div id="Piano" class="grid place-items-center flex-col bg-sky-50 justify-center items-center">
-      <div class="pt-[80px] pb-[15px] px-[35px] bg-blue-500 rounded-lg">
+      <div class="pt-[80px] pb-[15px] px-[35px] bg-red-500 rounded-lg">
         <div class="relative">
           <div class="flex relative cursor-pointer">
-            <div onclick="playPiano('P_C')" class="black-key w-[38px] h-[160px] rounded-b-md box-border absolute left-[48px]">
+            <div onclick="playPiano('P_C')" class="black-key w-[38px] h-[160px] rounded-b-md box-border shadow-lg absolute left-[48px]">
               <div class="relative flex justify-center top-[130px] text-white text-sm">C#</div>
             </div>
-            <div onclick="playPiano('P_D')" class="black-key w-[38px] h-[160px] rounded-b-md box-border absolute left-[117px]">
+            <div onclick="playPiano('P_D')" class="black-key w-[38px] h-[160px] rounded-b-md box-border shadow-lg absolute left-[117px]">
               <div class="relative flex justify-center top-[130px] text-white text-sm">D#</div>
             </div>
-            <div onclick="playPiano('P_F')" class="black-key w-[38px] h-[160px] rounded-b-md box-border absolute left-[253px]">
+            <div onclick="playPiano('P_F')" class="black-key w-[38px] h-[160px] rounded-b-md box-border shadow-lg absolute left-[253px]">
               <div class="relative flex justify-center top-[130px] text-white text-sm">F#</div>
             </div>
-            <div onclick="playPiano('P_G')" class="black-key w-[38px] h-[160px] rounded-b-md box-border absolute left-[320px]">
+            <div onclick="playPiano('P_G')" class="black-key w-[38px] h-[160px] rounded-b-md box-border shadow-lg absolute left-[320px]">
               <div class="relative flex justify-center top-[130px] text-white text-sm">G#</div>
             </div>
-            <div onclick="playPiano('P_A')" class="black-key w-[38px] h-[160px] rounded-b-md box-border absolute left-[389px]">
+            <div onclick="playPiano('P_A')" class="black-key w-[38px] h-[160px] rounded-b-md box-border shadow-lg absolute left-[389px]">
               <div class="relative flex justify-center top-[130px] text-white text-sm">A#</div>
             </div>
           </div>
@@ -231,7 +231,7 @@
       <div
         onclick="playDrum('hihatFoot')"
         id="hhf"
-        class="transition-all duration-75 active:scale-[1.07] cursor-pointer absolute flex w-36 h-36 rounded-full bg-gradient-to-bl from-zinc-100 to-zinc-200 drop-shadow-2xl top-[254%] left-[15%] justify-center items-center text-black text-sm border-zinc-800 border-4 font-bold"
+        class="getar cursor-pointer absolute flex w-36 h-36 rounded-full bg-gradient-to-bl from-zinc-100 to-zinc-200 drop-shadow-2xl top-[254%] left-[15%] justify-center items-center text-black text-sm border-zinc-800 border-4 font-bold"
       >
         HHF
       </div>
@@ -583,7 +583,7 @@
             playDrum('tom2');
             break;
         }
-        if (event.keyCode == 34 || event.keyCode == 44) {
+        if (event.keyCode == 34 || event.keyCode == 39) {
           playDrum('hihatFoot');
         }
       });
